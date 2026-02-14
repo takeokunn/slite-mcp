@@ -1,0 +1,75 @@
+{
+  "name": "@takeokunn/slite-mcp",
+  "version": "0.1.0",
+  "description": "MCP server for Slite integration",
+  "keywords": [
+    "slite",
+    "mcp",
+    "model-context-protocol",
+    "claude",
+    "anthropic",
+    "ai",
+    "knowledge-base",
+    "documentation"
+  ],
+  "license": "MIT",
+  "author": "takeokunn",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/takeokunn/slite-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/takeokunn/slite-mcp/issues"
+  },
+  "homepage": "https://github.com/takeokunn/slite-mcp#readme",
+  "type": "module",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "slite-mcp": "./dist/index.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "scripts": {
+    "build": "tsdown",
+    "dev": "tsdown --watch",
+    "start": "node dist/index.js",
+    "debug": "mcp-inspector node dist/index.js",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "lint": "biome lint .",
+    "lint:fix": "biome lint --write .",
+    "format": "biome format .",
+    "format:fix": "biome format --write .",
+    "check": "biome check .",
+    "check:fix": "biome check --write .",
+    "ci": "biome ci ."
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0",
+    "zod": "3.25.76"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.3.13",
+    "@modelcontextprotocol/inspector": "^0.16.6",
+    "@types/node": "^22.0.0",
+    "@vitest/coverage-v8": "^3.2.4",
+    "tsdown": "^0.20.3",
+    "typescript": "^5.8.0",
+    "vitest": "^3.0.0"
+  }
+}
