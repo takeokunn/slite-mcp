@@ -1,4 +1,4 @@
-import { UpdateTileParamsSchema } from '@src/schemas/note';
+import { UpdateTileParamsSchema } from '@src/schemas/tile';
 import { updateTileDefinition } from '@src/tools/tile/update-tile';
 import { describe, expect, it } from 'vitest';
 

@@ -3,6 +3,9 @@ import { type DeleteNoteParams, DeleteNoteParamsSchema } from '@src/schemas/note
 import type { ToolDefinition } from '@src/tools/registry';
 import { formatToolResponse } from '@src/tools/registry';
 
+/**
+ * Tool definition for deleting a note and its children from Slite
+ */
 export const deleteNoteDefinition: ToolDefinition<DeleteNoteParams> = {
   name: 'delete_note',
   description: 'Delete a note and its children from Slite',

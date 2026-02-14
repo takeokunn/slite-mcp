@@ -3,6 +3,9 @@ import { type GetNoteChildrenParams, GetNoteChildrenParamsSchema } from '@src/sc
 import type { ToolDefinition } from '@src/tools/registry';
 import { formatToolResponse } from '@src/tools/registry';
 
+/**
+ * Tool definition for getting child notes of a parent note
+ */
 export const getNoteChildrenDefinition: ToolDefinition<GetNoteChildrenParams> = {
   name: 'get_note_children',
   description: 'Get the children of a note in Slite',

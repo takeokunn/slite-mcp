@@ -20,11 +20,11 @@ export default defineConfig({
         '**/*.js',
         'vitest.config.ts',
         'tsdown.config.ts',
+        'release.config.js',
         'src/index.ts',
         'src/types.ts',
         'src/schemas/**',
         'src/tools/index.ts',
-        'src/tools/registry.ts',
         'src/tools/**/index.ts',
       ],
       thresholds: {

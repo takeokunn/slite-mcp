@@ -3,6 +3,9 @@ import { type ArchiveNoteParams, ArchiveNoteParamsSchema } from '@src/schemas/no
 import type { ToolDefinition } from '@src/tools/registry';
 import { formatToolResponse } from '@src/tools/registry';
 
+/**
+ * Tool definition for archiving or unarchiving a Slite note
+ */
 export const archiveNoteDefinition: ToolDefinition<ArchiveNoteParams> = {
   name: 'archive_note',
   description: 'Archive or unarchive a note in Slite',

@@ -3,6 +3,9 @@ import { type UpdateNoteParams, UpdateNoteParamsSchema } from '@src/schemas/note
 import type { ToolDefinition } from '@src/tools/registry';
 import { formatToolResponse } from '@src/tools/registry';
 
+/**
+ * Tool definition for updating a note's title or content in Slite
+ */
 export const updateNoteDefinition: ToolDefinition<UpdateNoteParams> = {
   name: 'update_note',
   description: 'Update the content or title of a note in Slite',

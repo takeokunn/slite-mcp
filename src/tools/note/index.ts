@@ -10,6 +10,9 @@ import { updateNoteDefinition } from './update-note';
 import { updateNoteOwnerDefinition } from './update-note-owner';
 import { verifyNoteDefinition } from './verify-note';
 
+/**
+ * Note management tool definitions
+ */
 export const noteTools: ToolDefinition<unknown>[] = [
   createNoteDefinition,
   listNotesDefinition,

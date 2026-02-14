@@ -7,6 +7,9 @@ import { searchTools } from './search';
 import { tileTools } from './tile';
 import { userTools } from './user';
 
+/**
+ * All tool definitions combined from all categories
+ */
 export const allTools: ToolDefinition<unknown>[] = [
   ...askTools,
   ...meTools,

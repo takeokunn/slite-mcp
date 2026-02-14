@@ -3,6 +3,9 @@ import { type FlagNoteAsOutdatedParams, FlagNoteAsOutdatedParamsSchema } from '@
 import type { ToolDefinition } from '@src/tools/registry';
 import { formatToolResponse } from '@src/tools/registry';
 
+/**
+ * Tool definition for flagging a Slite note as outdated
+ */
 export const flagNoteAsOutdatedDefinition: ToolDefinition<FlagNoteAsOutdatedParams> = {
   name: 'flag_note_as_outdated',
   description: 'Flag a note as outdated in Slite',

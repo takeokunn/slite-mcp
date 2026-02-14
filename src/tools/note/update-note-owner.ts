@@ -3,6 +3,9 @@ import { type UpdateNoteOwnerParams, UpdateNoteOwnerParamsSchema } from '@src/sc
 import type { ToolDefinition } from '@src/tools/registry';
 import { formatToolResponse } from '@src/tools/registry';
 
+/**
+ * Tool definition for updating the owner of a Slite note
+ */
 export const updateNoteOwnerDefinition: ToolDefinition<UpdateNoteOwnerParams> = {
   name: 'update_note_owner',
   description: 'Change the owner of a note in Slite',

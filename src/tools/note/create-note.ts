@@ -3,6 +3,9 @@ import { type CreateNoteParams, CreateNoteParamsSchema } from '@src/schemas/note
 import type { ToolDefinition } from '@src/tools/registry';
 import { formatToolResponse } from '@src/tools/registry';
 
+/**
+ * Tool definition for creating a new note in Slite
+ */
 export const createNoteDefinition: ToolDefinition<CreateNoteParams> = {
   name: 'create_note',
   description: 'Create a note from markdown content in Slite',

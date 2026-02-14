@@ -3,6 +3,9 @@ import { type GetNoteParams, GetNoteParamsSchema } from '@src/schemas/note';
 import type { ToolDefinition } from '@src/tools/registry';
 import { formatToolResponse } from '@src/tools/registry';
 
+/**
+ * Tool definition for getting a single note by ID from Slite
+ */
 export const getNoteDefinition: ToolDefinition<GetNoteParams> = {
   name: 'get_note',
   description: 'Get a note by ID from Slite',

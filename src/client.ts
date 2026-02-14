@@ -17,27 +17,33 @@ export interface SliteClient {
 
 export function createSliteClient(config?: Partial<SliteConfig>): SliteClient {
   const apiToken = config?.apiToken ?? process.env.SLITE_API_TOKEN;
-  if (!apiToken) throw new Error('SLITE_API_TOKEN is required');
+
+  if (!apiToken) {
+    throw new Error('SLITE_API_TOKEN is required');
+  }
 
   const baseUrl = 'https://api.slite.com/v1';
 
-  async function request<T>(endpoint: string, options: RequestOptions = {}): Promise<T> {
-    const { method = 'GET', body, params } = options;
-
-    const url = new URL(`${baseUrl}${endpoint}`);
+  function buildUrl(endpoint: string, params?: RequestOptions['params']): string {
+    const fullUrl = new URL(`${baseUrl}${endpoint}`);
     if (params) {
       for (const [key, value] of Object.entries(params)) {
         if (value !== undefined) {
-          url.searchParams.set(key, String(value));
+          fullUrl.searchParams.append(key, String(value));
         }
       }
     }
+    return fullUrl.toString();
+  }
 
+  async function request<T>(endpoint: string, options: RequestOptions = {}): Promise<T> {
+    const { method = 'GET', body, params } = options;
     const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 30000);
+    const timeoutId = setTimeout(() => controller.abort(), 30000);
 
     try {
-      const response = await fetch(url.toString(), {
+      const requestUrl = buildUrl(endpoint, params);
+      const response = await fetch(requestUrl, {
         method,
         headers: {
           'Content-Type': 'application/json',
@@ -58,9 +64,9 @@ export function createSliteClient(config?: Partial<SliteConfig>): SliteClient {
         return {} as T;
       }
 
-      return (await response.json()) as T;
+      return response.json() as Promise<T>;
     } finally {
-      clearTimeout(timeout);
+      clearTimeout(timeoutId);
     }
   }
 

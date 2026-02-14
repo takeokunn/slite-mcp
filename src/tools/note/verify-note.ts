@@ -3,6 +3,9 @@ import { type VerifyNoteParams, VerifyNoteParamsSchema } from '@src/schemas/note
 import type { ToolDefinition } from '@src/tools/registry';
 import { formatToolResponse } from '@src/tools/registry';
 
+/**
+ * Tool definition for marking a Slite note as verified
+ */
 export const verifyNoteDefinition: ToolDefinition<VerifyNoteParams> = {
   name: 'verify_note',
   description: 'Set a verified status on a note in Slite',

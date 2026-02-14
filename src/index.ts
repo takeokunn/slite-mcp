@@ -9,14 +9,21 @@ const { version } = require('../package.json') as { version: string };
 
 async function main() {
   let client: SliteClient;
+
   try {
     client = createSliteClient();
   } catch (error) {
     console.error('Failed to initialize Slite client:', error);
     process.exit(1);
   }
-  const server = new McpServer({ name: 'slite-mcp', version });
+
+  const server = new McpServer({
+    name: 'slite-mcp',
+    version,
+  });
+
   registerTools(server, client, allTools);
+
   const transport = new StdioServerTransport();
   await server.connect(transport);
 }

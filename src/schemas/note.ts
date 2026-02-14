@@ -63,23 +63,6 @@ export const UpdateNoteOwnerParamsSchema = z.object({
   groupId: z.string().optional().describe('Group ID to set as owner'),
 });
 
-export const UpdateTileParamsSchema = z.object({
-  noteId: NoteIdSchema,
-  tileId: z.string().min(1).describe('Tile ID'),
-  title: z.string().nullable().optional().describe('Tile title'),
-  iconURL: z.string().nullable().optional().describe('Icon URL'),
-  status: z
-    .object({
-      label: z.string().describe('Status label'),
-      colorHex: z.string().optional().describe('Status color hex'),
-    })
-    .nullable()
-    .optional()
-    .describe('Status with color'),
-  url: z.string().nullable().optional().describe('External URL link'),
-  content: z.string().nullable().optional().describe('Markdown content'),
-});
-
 export type CreateNoteParams = z.infer<typeof CreateNoteParamsSchema>;
 export type ListNotesParams = z.infer<typeof ListNotesParamsSchema>;
 export type GetNoteParams = z.infer<typeof GetNoteParamsSchema>;
@@ -90,4 +73,3 @@ export type VerifyNoteParams = z.infer<typeof VerifyNoteParamsSchema>;
 export type FlagNoteAsOutdatedParams = z.infer<typeof FlagNoteAsOutdatedParamsSchema>;
 export type ArchiveNoteParams = z.infer<typeof ArchiveNoteParamsSchema>;
 export type UpdateNoteOwnerParams = z.infer<typeof UpdateNoteOwnerParamsSchema>;
-export type UpdateTileParams = z.infer<typeof UpdateTileParamsSchema>;
